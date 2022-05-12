@@ -1,0 +1,62 @@
+<div class="container py-6">
+  <div class="columns is-multiline is-mobile">
+    <div class="column is-half is-offset-one-quarter">
+      <h3 class="title is-3 has-text-centered is-capitalized ">User Registration</h3>
+      <hr class="mb-4">
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <form action="/employee/register" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <div class="field">
+                <label class="label">Name</label>
+                <p class="control has-icons-left ">
+                  <input class="input" type="text" placeholder="Name" name="name">
+                  <span class="icon is-small is-left ">
+							    <i class="far fa-user"></i>
+							   </span>
+                </p>
+              </div>
+              <div class="field">
+                <label class="label">Email</label>
+                <p class="control has-icons-left ">
+                  <input class="input" type="email" placeholder="Email" name="email">
+                  <span class="icon is-small is-left">
+							     	<i class="fas fa-envelope email_icon"></i>
+							   </span>
+                </p>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Password" name="password">
+                  <span class="icon is-small is-left ">
+							    <i class="fas fa-lock password_icon "></i>
+					  	</span>
+                </p>
+              </div>
+              <div class="field">
+                <label class="label">Confirm Password</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="password" placeholder="Confirm Password" name="password_confirmation">
+                  <span class="icon is-small is-left">
+							    <i class="fas fa-lock password_icon "></i>
+					  	</span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button class="button is-primary" type="submit">
+                    Register
+                  </button>
+                </p>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
