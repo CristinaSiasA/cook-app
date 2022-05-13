@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <form action="/employee/login" method="post">
+            <form action="/login" method="post">
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
               <div class="field">
                 <label class="label">Email</label>
@@ -28,11 +28,6 @@
                 </p>
               </div>
               <div class="field">
-                <p class="control mt-4">
-                  <a href="/employee/forgot-password" class="has-text-dark">
-                    Forgot Password?
-                  </a>
-                </p>
                 <p class="control">
                   <%= link_to "Don't have an account? Sign up now" ,register_path ,class: "has-text-primary" %>
                 </p>

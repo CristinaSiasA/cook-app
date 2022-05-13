@@ -1,3 +1,8 @@
+# frozen_string_literal: true
 class ApplicationRecord < ActiveRecord::Base
-  primary_abstract_class
+  self.abstract_class = true
+
+  def created_at
+    attributes['created_at'].strftime("%Y-%m-%d %H:%M %Z")
+  end
 end

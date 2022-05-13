@@ -17,13 +17,24 @@
       <%= link_to "Lunch" , lunch_path,class: "navbar-item" %>
       <%= link_to "Breakfast" ,breakfast_path ,class: "navbar-item" %>
       <%= link_to "Dinner" ,dinner_path ,class: "navbar-item" %>
+      <% if Current.user %>
+        <%= link_to "My recipes" ,recipes_path ,class: "navbar-item" %>
+      <%end %>
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <%= link_to "Sign up" ,register_path ,class: "button is-primary" %>
-          <%= link_to "Log in" ,login_path ,class: "button is-light" %>
+          <% if Current.user %>
+            <span class="mr-1 ml-1">Hey,  <%= Current.user.name %></span>
+            <div class="navbar-start">
+              <%= button_to "Logout",logout_path,method: :delete,class: "button"%>
+            </div>
+          <%else %>
+            <%= link_to "Sign up" ,register_path ,class: "button is-primary" %>
+            <%= link_to "Log in" ,login_path ,class: "button is-light" %>
+          <%end %>
+
         </div>
       </div>
     </div>

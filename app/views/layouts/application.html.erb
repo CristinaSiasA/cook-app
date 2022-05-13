@@ -15,6 +15,13 @@
 
 <%= render partial: "partials/nav" %>
 <main>
+  <div class="container">
+      <div class="columns is-mobile">
+        <div class="column">
+          <%= render partial: "partials/flash" %>
+        </div>
+      </div>
+  </div>
   <%= yield %>
 </main>
 <%= render partial: "partials/footer"%>

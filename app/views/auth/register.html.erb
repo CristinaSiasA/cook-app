@@ -1,3 +1,4 @@
+
 <div class="container py-6">
   <div class="columns is-multiline is-mobile">
     <div class="column is-half is-offset-one-quarter">
@@ -6,7 +7,12 @@
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <form action="/employee/register" method="post">
+            <form action="/register" method="post">
+              <% if @user.errors.any? %>
+                <% @user.errors.full_messages.each do |message| %>
+                  <p  class="help is-danger my-1"><%= message %></p>
+                <%end %>
+              <%end %>
               <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
               <div class="field">
                 <label class="label">Name</label>
