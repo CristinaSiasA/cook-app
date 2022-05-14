@@ -37,63 +37,7 @@ main{
     position: absolute;
 }
 
-.dropdown-trigger button {
-    border: 0 !important;
-}
 
-.dropdown-content {
-    position: relative;
-    left: 30% !important;
-}
-
-.hero_wrapper {
-    height: 700px;
-    background: #fff;
-    margin: -53px 0 !important;
-}
-
-.hero_wrapper colums {
-    height: 600px;
-    background: #fff;
-}
-
-.image__hero {
-    /*background-image: url("undraw_towing_6yy4.png");*/
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
-}
-
-.call__action_card_wrapper {
-    height: 450px;
-    padding-top: 60px;
-    background-color: #F4F5F7 !important;;
-}
-
-.call__action_card_wrapper p {
-    font-weight: 600;
-    word-spacing: 1px !important;
-}
-
-.customer, .business {
-    color: #00d1b2;
-    font-size: 40px;
-}
-
-.btn__action {
-    margin-top: 42px;
-    font-weight: 500;
-    font-size: 22px;
-}
-#panel {
-    height: 95vh !important;
-}
-
-
-.icon__large {
-    font-size: 68px;
-}
 .message_border{
     border-left: 4px solid #00d1b2 !important;;
 }
@@ -102,100 +46,25 @@ main{
     color: black !important;
     font-size: 18px;
 }
-.accident{
-    background: #ffffff !important;
-}
+
 .flash{
     min-width: 100% !important;
 }
 .navbar-start{
     margin: 0 45px !important;
 }
-
-.pageable{
-    padding: 7px !important;
-    height: 30px !important;
-    font-size: 1em;
-    justify-content: center;
-    margin: .25rem;
-    text-align: center;
-    white-space: nowrap;
+.recipe_card{
+    position: relative !important;
 }
-#example_next,#example_previous {
-    border-color: #dbdbdb !important;
-    color: #363636 !important;
-    min-width: 2.5em !important;
-    white-space: nowrap !important;
-    padding: 2px 4px !important;
-    margin-top: 8px;
+.category_label{
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    z-index: 100;
 }
 
-.paginate_button{
-    color: #363636;
-    min-width: 2.5em;
-    -webkit-appearance: none;
-    align-items: center;
-    margin: 0 4px;
-    padding: 0 5px !important;
-}
-a.current{
-    color: #00d1b2 !important;
-}
-.dataTables_info{
-    margin-bottom: 7px !important;
-}
 
-.searchable:focus{
-    outline: 0 none!important;
-    border: 1px solid black !important;
-    box-shadow:none !important;
-}
-div.plan_wrapper label{
-    height: 130px !important;
-    width: 180px !important;
-}
-.card_wrapper{
-    min-height: 95vh !important;
-}
-.step-content{
-    min-height:350px !important;
-}
-.plan_wrapper{
-    margin-top: 115px;
-}
-.img_wrapper {
-    overflow:hidden;
-    max-height: 420px !important;
-}
-.contact_img_wrapper img{
-    max-width: 100%;
-    max-height: 100%;
-}
-.img_wrapper img{
-    max-width: 100%;
-    max-height: 100%;
-}
-#what-we-do {
-    height: 300px;
-    background: #F0F3F5;
-}
-#services{
-    margin-top: 192px;
-    margin-bottom: 92px;
-}
-.line{
-    border-top: 5px solid #00d1b2;
-}
-#services i{
-    color: #00d1b2;
-}
-.navbar-brand a.navbar-item img{
-    max-width: 150px;
-    max-height: 100%;
-}
-.delete-accident{
-    cursor: pointer !important;
-}
+
 footer.footer{
     background: #F4F6F8 !important;
     padding: 20px 0 !important;

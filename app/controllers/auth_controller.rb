@@ -10,7 +10,7 @@ class AuthController < ApplicationController
     user = User.find_by(email: params[:email])
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to users_recipes_path
     else
       flash.now[:alert] = 'Invalid email or password'
       render :login
@@ -30,8 +30,5 @@ class AuthController < ApplicationController
   private
   def register_params
     params.permit(:name, :email, :password, :password_confirmation,)
-  end
-  def login_params
-    params.permit( :email, :password,)
   end
 end

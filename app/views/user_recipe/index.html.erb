@@ -4,7 +4,7 @@
       No Recipes available
     </div>
   <% else %>
-  <div class="columns">
+    <div class="columns">
       <% @recipes.each do |recipe|%>
         <div class="column is-3">
           <div class="card recipe_card">
@@ -26,23 +26,27 @@
                   <%=(recipe.cook.to_i + recipe.prep.to_i) %>  mins
               </span>
             </span>
-                  <span>
-               <span class="icon mx-0">
-                   <i class="bi bi-person"></i>
-               </span>
-              <span class="is-size-7">
-                   <%= recipe.user.name %>
-              </span>
-            </span>
+
                 </div>
               </div>
-              <a href="/">
-                <button class="button is-black is-small">View Recipe ></button>
-              </a>
+              <div class="is-flex">
+                <a href="/recipes/<%= recipe.id %>" class="ml-3">
+                  <button class="button is-black is-small">View</button>
+                </a>
+                <a href="/users/recipes/<%= recipe.id %>/edit" class="ml-3">
+                  <button class="button is-success is-small">Edit</button>
+                </a>
+                <form action="/users/recipes/<%= recipe.id %>/delete" method="post" class="is-hoverable ml-3">
+                  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                  <input type="hidden" name="user_id" value="<%= Current.user.id %>">
+                  <button class="button is-danger is-small">Delete</button>
+                </form>
+              </div>
+
             </div>
           </div>
         </div>
       <% end %>
-    <% end %>
+  <% end %>
   </div>
 </div>

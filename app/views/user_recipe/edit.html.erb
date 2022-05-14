@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="container py-3 form__container">
+    <div class="columns is-multiline is-mobile">
+      <div class="column is-half is-offset-one-quarter">
+        <h3 class="title is-3 has-text-centered is-capitalized ">Edit Recipe</h3>
+        <hr class="mb-4">
+        <div class="card">
+          <div class="card-content">
+            <div class="content">
+              <% if @recipe.errors.any? %>
+                <%@recipe.errors.full_messages.each do |message| %>
+                  <p  class="help is-danger my-1"><%= message %></p>
+                <%end %>
+              <%end %>
+              <form action="/users/recipes/<%=@id%>/edit" method="post">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <input type="hidden" name="user_id" value="<%= Current.user.id %>">
+                <input type="hidden" name="car_id" value="<%= @id %>">
+                <div class="field">
+                  <label class="label">Name</label>
+                  <p class="control">
+                    <input class="input" value="<%=@recipe.name%>" type="text" placeholder="e.g. Pasta" name="name">
+                  </p>
+                </div>
+
+                <div class="columns">
+                  <div class="column">
+                    <div class="field">
+                      <label class="label">Category</label>
+                      <div class="select is-fullwidth">
+                        <select name="category_id">
+                          <option selected disabled>Select</option>
+                          <% @categories.each do |category| %>
+                            <option value="<%=category[:id] %>" ><%= category[:name] %></option>
+                          <% end %>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                      <label class="label">Photo</label>
+                      <p class="control">
+                        <input class="input" type="text"  value="<%=@recipe.prep%>" placeholder="e.g. Photo" name="photo">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="columns">
+                  <div class="column">
+                    <div class="field">
+                      <label class="label">Prep</label>
+                      <p class="control">
+                        <input class="input" value="<%=@recipe.prep%>" type="text" placeholder="e.g. 30 min" name="prep">
+                      </p>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                      <label class="label">Cook</label>
+                      <p class="control">
+                        <input class="input" type="text" value="<%=@recipe.cook%>" placeholder="e.g. 20 min" name="cook">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Ingredients</label>
+                  <p class="control">
+                    <textarea class="textarea"  placeholder="e.g. Cheese, Onions" rows="5" name="ingredient"><%=@recipe.ingredient%></textarea>
+                  </p>
+                </div>
+                <div class="field">
+                  <label class="label">Direction</label>
+                  <p class="control">
+                    <textarea class="textarea"  placeholder="e.g. Add onion" rows="5" name="direction"><%=@recipe.direction%></textarea>
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <button class="button is-primary" type="submit">
+                      Save
+                    </button>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

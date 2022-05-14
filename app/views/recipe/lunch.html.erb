@@ -1,1 +1,48 @@
-lunch
+<div class="container">
+  <% if @recipes.size==0 %>
+    <div class="notification is-info is-light">
+      No Recipes available
+    </div>
+  <% else %>
+  <div class="columns">
+      <% @recipes.each do |recipe|%>
+        <div class="column is-3">
+          <div class="card recipe_card">
+            <span class="tag is-dark category_label"><%=recipe.category.name %></span>
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="<%=recipe.photo %>" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <p class="title is-5"><%=recipe.name %></p>
+                <div class="mt-0 is-flex-direction-row is-justify-content-space-between">
+              <span>
+               <span class="icon">
+                   <i class="bi bi-clock"></i>
+               </span>
+              <span class="is-size-7">
+                  <%=(recipe.cook.to_i + recipe.prep.to_i) %>  mins
+              </span>
+            </span>
+                  <span>
+               <span class="icon mx-0">
+                   <i class="bi bi-person"></i>
+               </span>
+              <span class="is-size-7">
+                   <%= recipe.user.name %>
+              </span>
+            </span>
+                </div>
+              </div>
+              <a href="/recipes/<%= recipe.id %>">
+                <button class="button is-black is-small">View Recipe ></button>
+              </a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

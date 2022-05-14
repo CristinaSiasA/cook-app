@@ -18,7 +18,8 @@
       <%= link_to "Breakfast" ,breakfast_path ,class: "navbar-item" %>
       <%= link_to "Dinner" ,dinner_path ,class: "navbar-item" %>
       <% if Current.user %>
-        <%= link_to "My recipes" ,recipes_path ,class: "navbar-item" %>
+        <%= link_to "My recipes" ,users_recipes_path ,class: "navbar-item" %>
+        <%= link_to "New Recipe" ,users_recipe_create_path ,class: "navbar-item" %>
       <%end %>
     </div>
 

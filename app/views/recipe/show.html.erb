@@ -1,0 +1,72 @@
+
+  <section class="is-relative section">
+    <div class="container">
+      <div class="columns is-multiline">
+        <div class="column is-12 is-6-tablet is-5-desktop mb-0-desktop">
+          <figure class="image is-4by3">
+            <img src="<%=@recipe.photo %>" alt="Placeholder image">
+          </figure>
+          <div class="ingredient">
+            <p class="mt-4">
+              <span class="has-text-weight-semibold">
+              Ingredients:
+              </span><br>
+              <%= @recipe.ingredient %>
+            </p>
+
+          </div>
+
+        </div>
+        <div class="column is-12 is-7-tablet is-7-desktop">
+          <div class="has-mw-xl-desktop">
+            <h2 class="mb-16 mb-24-desktop title is-2"><%=@recipe.name %></h2>
+            <div class="content">
+              <div class="mt-0 is-flex-direction-row is-justify-content-space-between">
+              <span>
+               <span class="icon">
+                   <i class="bi bi-clock"></i>
+               </span>
+              <span class="is-size-7">
+                Prep:
+                  <%=(@recipe.prep.to_i) %>  mins
+              </span>
+            </span>
+                <span>
+                 <span class="icon">
+                     <i class="bi bi-clock"></i>
+                 </span>
+                <span class="is-size-7">
+                  Cook:
+                  <%=(@recipe.cook.to_i) %>  mins
+                </span>
+            </span>
+                <span>
+                 <span class="icon">
+                     <i class="bi bi-clock"></i>
+                 </span>
+                <span class="is-size-7">
+                  Ready In:
+                  <%=(@recipe.cook.to_i + @recipe.prep.to_i) %>  mins
+                </span>
+            </span>
+                <span>
+               <span class="icon mx-0">
+                   <i class="bi bi-person"></i>
+               </span>
+              <span class="is-size-7">
+                   <%= @recipe.user.name %>
+              </span>
+            </span>
+              </div>
+            </div>
+            <div class="instruction">
+              <p><%= @recipe.direction %></p>
+            </div>
+            <div class="mt-6">
+              <button class="button is-success">Print</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
