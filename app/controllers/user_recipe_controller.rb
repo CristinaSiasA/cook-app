@@ -12,26 +12,25 @@ class UserRecipeController < ApplicationController
   def create
     @recipe = Recipe.new
     @categories = Category.all
+    @data = RecipeCountry.get_countries
   end
 
   def store_recipe
 
+    @recipe = Recipe.new(user_recipe_params)
     object_key = params[:photo].original_filename
-
     file = params[:photo].tempfile
     url = "https://my-cookbook-photos.s3.amazonaws.com/#{object_key}"
-    s3_image_uploaded = upload_to_s3(file,object_key)
-
-    if s3_image_uploaded
-      @recipe = Recipe.new(user_recipe_params)
-      @recipe.photo = url
-      if @recipe.save
-        redirect_to users_recipe_create_path, notice: 'Recipe created successfully'
-      else
-        @categories = Category.all
-        render :create
-      end
+    upload_to_s3(file,object_key)
+    @recipe.photo = url
+    if @recipe.save
+      redirect_to users_recipe_create_path, notice: 'Recipe created successfully'
+    else
+      @categories = Category.all
+      @data= RecipeCountry.get_countries
+      render :create
     end
+
 
   end
 
@@ -70,7 +69,7 @@ class UserRecipeController < ApplicationController
   private
 
   def user_recipe_params
-    params.permit(:name, :photo, :prep, :cook, :direction, :ingredient, :user_id, :category_id)
+    params.permit(:name, :prep, :cook, :direction, :ingredient, :user_id, :category_id,:country)
   end
 
   def upload_to_s3(file,object_key)
